@@ -26,7 +26,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -52,6 +53,17 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				glass: {
+					DEFAULT: 'hsl(var(--glass))',
+					border: 'hsl(var(--glass-border))',
+					hover: 'hsl(var(--glass-hover))'
+				},
+				neon: {
+					blue: 'hsl(var(--neon-blue))',
+					purple: 'hsl(var(--neon-purple))',
+					cyan: 'hsl(var(--neon-cyan))',
+					pink: 'hsl(var(--neon-pink))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -62,6 +74,19 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-surface': 'var(--gradient-surface)',
+				'gradient-glow': 'var(--gradient-glow)'
+			},
+			boxShadow: {
+				'glow': 'var(--shadow-glow)',
+				'glass': 'var(--shadow-glass)',
+				'elevation': 'var(--shadow-elevation)'
+			},
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -88,7 +113,10 @@ export default {
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'gradient-shift': 'gradient-shift 3s ease-in-out infinite'
 			}
 		}
 	},
