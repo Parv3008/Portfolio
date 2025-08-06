@@ -152,27 +152,15 @@ const Contact = () => {
     { 
       icon: GithubLogo, 
       label: 'GitHub', 
-      href: 'https://github.com/miladicode',
+      href: 'https://github.com/Parv3008',
       color: 'hover:text-neon-blue'
     },
     { 
       icon: LinkedinLogo, 
       label: 'LinkedIn', 
-      href: 'https://linkedin.com/in/miladicode',
+      href: 'www.linkedin.com/in/parv-gosani',
       color: 'hover:text-neon-cyan'
     },
-    { 
-      icon: TwitterLogo, 
-      label: 'Twitter', 
-      href: 'https://twitter.com/miladicode',
-      color: 'hover:text-neon-purple'
-    },
-    { 
-      icon: EnvelopeSimple, 
-      label: 'Email', 
-      href: 'mailto:hello@miladicode.com',
-      color: 'hover:text-neon-pink'
-    }
   ];
 
   return (

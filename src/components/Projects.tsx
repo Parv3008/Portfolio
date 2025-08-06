@@ -167,7 +167,7 @@ const Projects = () => {
               key={project.id}
               className={`project-card glass-card overflow-hidden hover:glow-blue transition-all duration-500 cursor-pointer group ${
                 project.featured ? 'md:col-span-2 lg:col-span-1' : ''
-              } ${index === 0 ? 'lg:col-span-2 lg:row-span-2' : ''}`}
+              }`}              
               onClick={() => handleProjectClick(project.id)}
             >
               {/* Project Image */}
@@ -228,12 +228,12 @@ const Projects = () => {
         </div>
 
         {/* View All Projects Button */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <button className="btn-primary text-lg px-8 py-4">
             View All Projects
             <span className="ml-2">→</span>
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

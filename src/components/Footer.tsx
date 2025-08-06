@@ -123,7 +123,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-2xl font-bold gradient-text mb-3">Milad</h3>
+              <h3 className="text-2xl font-bold gradient-text mb-3">Parv</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Creating digital experiences that inspire and engage through 
                 innovative design and cutting-edge technology.
@@ -171,7 +171,7 @@ const Footer = () => {
         <div className="mt-16 pt-8 border-t border-border/30">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-muted-foreground text-sm">
-              © {currentYear} Milad. All rights reserved.
+              © {currentYear} Parv. All rights reserved.
             </div>
             
             <div className="flex items-center space-x-6 text-sm text-muted-foreground">

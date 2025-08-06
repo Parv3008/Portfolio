@@ -56,7 +56,7 @@ const Navigation = () => {
                 onClick={() => scrollToSection('hero')}
                 className="text-2xl font-bold gradient-text hover:scale-105 transition-transform duration-300"
               >
-                Milad
+                Parv
               </button>
             </div>
 
@@ -75,7 +75,7 @@ const Navigation = () => {
               
               <button
                 onClick={() => scrollToSection('contact')}
-                className="nav-item btn-primary text-sm"
+                className="nav-item btn-primary text-white text-sm"
               >
                 Hire Me
               </button>
@@ -120,7 +120,7 @@ const Navigation = () => {
             
             <button
               onClick={() => scrollToSection('contact')}
-              className="btn-primary text-lg mt-8"
+              className="btn-primary text-white text-lg mt-8"
             >
               Hire Me
             </button>
