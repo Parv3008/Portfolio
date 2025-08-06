@@ -28,19 +28,19 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
     let currentIndex = 0;
     let greetingInterval: NodeJS.Timeout;
     
-    // Create floating particles
+    // Create lightweight floating particles (reduced from 20 to 8 for better performance)
     const createParticles = () => {
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 8; i++) {
         const particle = document.createElement('div');
-        particle.className = 'absolute w-1 h-1 bg-primary rounded-full opacity-30';
+        particle.className = 'absolute w-1 h-1 bg-primary rounded-full opacity-20';
         particle.style.left = Math.random() * 100 + '%';
         particle.style.top = Math.random() * 100 + '%';
         particlesRef.current?.appendChild(particle);
 
         gsap.to(particle, {
-          y: -20,
-          opacity: 0.8,
-          duration: 3 + Math.random() * 2,
+          y: -30,
+          opacity: 0.6,
+          duration: 4 + Math.random() * 2,
           repeat: -1,
           yoyo: true,
           ease: "power1.inOut",
@@ -50,21 +50,22 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
     };
 
     // Initial setup
-    gsap.set(textRef.current, { opacity: 0, y: 30, filter: "blur(10px)" });
+    gsap.set(textRef.current, { opacity: 0, y: 50, filter: "blur(10px)" });
     gsap.set(containerRef.current, { opacity: 1, scale: 1 });
 
-    // Animate text in
+    // Animate text in with better performance
     gsap.to(textRef.current, {
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
-      duration: 0.8,
-      ease: "power3.out"
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.2
     });
 
     createParticles();
 
-    // Start greeting cycle
+    // Start greeting cycle with proper multilingual sequence
     const showNextGreeting = () => {
       if (!textRef.current) return;
 
@@ -90,45 +91,51 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
       });
     };
 
-    // Start the greeting cycle after initial animation
-    setTimeout(() => {
-      if (textRef.current) {
-        textRef.current.textContent = greetings[0];
-        currentIndex = 1;
-        greetingInterval = setInterval(showNextGreeting, 600);
-      }
-    }, 500);
+    // Start with first greeting immediately
+    if (textRef.current) {
+      textRef.current.textContent = greetings[0];
+      currentIndex = 1;
+      
+      // Start cycling through greetings after 1 second
+      setTimeout(() => {
+        greetingInterval = setInterval(showNextGreeting, 500); // Faster transitions
+      }, 1000);
+    }
 
-    // End animation after all greetings
+    // End animation after showing all greetings
     const endAnimation = setTimeout(() => {
       clearInterval(greetingInterval);
       
       // Final scale and fade out
       gsap.to(textRef.current, {
-        scale: 1.2,
+        scale: 1.1,
         opacity: 0,
-        filter: "blur(10px)",
+        filter: "blur(15px)",
         duration: 0.8,
         ease: "power3.inOut"
       });
 
       gsap.to(containerRef.current, {
-        scale: 0.9,
+        scale: 0.95,
         opacity: 0,
         duration: 1,
         ease: "power3.inOut",
-        delay: 0.4,
+        delay: 0.3,
         onComplete: () => {
           onComplete();
         }
       });
-    }, 6000);
+    }, 5500); // Slightly shorter total duration
 
     return () => {
       clearInterval(greetingInterval);
       clearTimeout(endAnimation);
+      // Clean up particles for better performance
+      if (particlesRef.current) {
+        particlesRef.current.innerHTML = '';
+      }
     };
-  }, [onComplete]);
+  }, [onComplete, greetings]);
 
   return (
     <div

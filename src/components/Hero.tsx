@@ -53,22 +53,22 @@ const Hero = () => {
       });
     }
 
-    // Create floating orbs
+    // Create lightweight floating orbs (reduced from 5 to 3 for better performance)
     const createFloatingOrbs = () => {
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 3; i++) {
         const orb = document.createElement('div');
-        orb.className = `absolute w-20 h-20 rounded-full bg-gradient-primary opacity-10 blur-xl`;
+        orb.className = `absolute w-16 h-16 rounded-full bg-gradient-primary opacity-5 blur-lg`;
         orb.style.left = Math.random() * 100 + '%';
         orb.style.top = Math.random() * 100 + '%';
         heroRef.current?.appendChild(orb);
 
         gsap.to(orb, {
-          x: (Math.random() - 0.5) * 200,
-          y: (Math.random() - 0.5) * 200,
-          duration: 10 + Math.random() * 10,
+          x: (Math.random() - 0.5) * 100,
+          y: (Math.random() - 0.5) * 100,
+          duration: 15 + Math.random() * 5, // Slower animations for better performance
           repeat: -1,
           yoyo: true,
-          ease: "none"
+          ease: "power1.inOut"
         });
       }
     };
@@ -93,7 +93,7 @@ const Hero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div ref={heroRef} className="absolute inset-0 z-0">
-        {/* Spline 3D Background */}
+        {/* Spline 3D Background - Optimized loading */}
         <iframe
           src="https://my.spline.design/orb-bABDi936usRjmDRfLr6m7KQg/"
           frameBorder="0"
@@ -101,6 +101,8 @@ const Hero = () => {
           height="100%"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ pointerEvents: 'none' }}
+          loading="lazy"
+          title="3D Background Animation"
         />
         
         {/* Gradient overlay for better text readability */}

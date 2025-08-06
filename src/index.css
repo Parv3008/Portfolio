@@ -89,7 +89,7 @@
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    background: linear-gradient(135deg, hsl(227 30% 5%), hsl(227 30% 8%));
+    background: hsl(227 30% 5%); /* Simplified background for better performance */
   }
 
   /* Custom scrollbar */
