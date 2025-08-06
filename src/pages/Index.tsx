@@ -10,15 +10,6 @@ import Footer from '@/components/Footer';
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Ensure minimum loading time for smooth experience
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   const handleLoadingComplete = () => {
     setIsLoading(false);
   };

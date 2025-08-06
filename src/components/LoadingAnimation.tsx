@@ -140,18 +140,27 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-50 backdrop-glass flex items-center justify-center"
+      className="fixed inset-0 z-[9999] backdrop-glass flex items-center justify-center"
+      style={{ 
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 9999
+      }}
     >
       {/* Animated background particles */}
       <div ref={particlesRef} className="absolute inset-0" />
       
       {/* Background glow effect */}
-      <div className="absolute inset-0 bg-gradient-glow opacity-30" />
+      <div className="absolute inset-0 bg-gradient-glow opacity-20" />
       
       {/* Main greeting text */}
       <div
         ref={textRef}
         className="text-6xl md:text-8xl font-light gradient-text text-center glow-text"
+        style={{ fontWeight: 300 }}
       >
         Loading...
       </div>
